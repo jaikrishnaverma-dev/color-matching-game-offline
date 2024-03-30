@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="logo-container container">
+      <p class="text-center mb-2 logo-text">
+        <a
+          target="_blank"
+          class="text-decoration-none text-center"
+          href="https://www.linkedin.com/in/jai3000/"
+          >SATTA</a
+        >
+      </p>
+      <p class="text-center mt-2 text-secondary">Free offline mode game</p>
+    </div>
+    <div class="container">
+      <div class="card mt-4">
+        <div class="card-title border-bottom p-2" style="line-height: 1">
+          <p class="fs-6 fw-bolder m-0">Rules</p>
+          <small class="text-secondary m-0"
+            >Rules Numbers and return are clearly mention here. user can select
+            numbers or group of numbers by colors</small
+          >
+        </div>
+        <div class="card-body p-1">
+          <ul class="rules">
+            <li>Numbers button give you return of 1.8 times of your amount.</li>
+            <li>
+              Color: <span class="text-primary fw-bold">Blue</span> consist of
+              Numbers 1, 8, 9, 3, 4, 7 and if any one arise then return 1.25
+              times of your amount.
+            </li>
+            <li>
+              Color: <span class="text-warning fw-bold">Yellow</span> consist of
+              Numbers 2, 5, 3, 6 and if any one arise then return 1.5 times of
+              your amount.
+            </li>
+            <li>
+              Color: <span class="text-danger fw-bold">Red</span> consist of
+              Numbers 9, 7, 4 and if any one arise then return 1.75 times of
+              your amount.
+            </li>
+          </ul>
+          <p class="p-2" style="font-size: 13px">
+            Note: For last 30 second all bet-buttons disabled you cant betting
+            that time.
+          </p>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-title border-bottom p-2">
+          <p class="fs-6 fw-bolder m-0">
+            For round <strong id="current-round"></strong>
+          </p>
+          <!-- <small class="text-secondary"
+            >Winners number by rounds</small
+          > -->
+        </div>
+        <div class="card-body p-1">
+          <div class="d-flex justify-content-center w-100">
+            <h2 class="bg-secondary text-warning p-2 rounded" id="timer">
+              00:00
+            </h2>
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger m-2">All the best</button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <form
+              class="modal-content"
+              onsubmit="event.preventDefault(); addBet(this)"
+            >
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Bet</h1>
+
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    autofocus
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  />
+                  <div id="emailHelp" class="form-text">
+                    One bet per round valid for one user.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label"
+                    >Amount</label
+                  >
+                  <input
+                    type="number"
+                    name="amount"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                  />
+                  <input
+                    id="betIndex"
+                    type="hidden"
+                    style="visibility: hidden"
+                    class="form-control"
+                    name="betIndex"
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="reset"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary" typ>
+                  Bet For <span id="for-bet"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-title border-bottom p-2">
+          <p class="fs-6 fw-bolder m-0">Choose your Bet</p>
+          <small class="text-secondary"
+            >One user can only choose one option at one turn.</small
+          >
+        </div>
+        <div class="card-body p-1">
+          <div
+            id="bet-buttons"
+            class="d-flex justify-content-center align-items-center-flex-wrap mt-2 mb-3"
+            style="gap: 10px; flex-wrap: wrap"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-title border-bottom p-2">
+          <p class="fs-6 fw-bolder m-0">Bets</p>
+          <small class="text-secondary">Bets list</small>
+        </div>
+        <div class="card-body p-1">
+          <table class="table mt-2">
+            <thead>
+              <tr>
+                <th scope="col">S.no.</th>
+                <th scope="col">Round</th>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="bets-tbody">
+              <tr>
+                <td colspan="4">
+                  <p class="text-center tetx-secondary m-5">
+                    No Data Available
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-title border-bottom p-2">
+          <p class="fs-6 fw-bolder m-0">Winners</p>
+          <small class="text-secondary">Winners number by rounds</small>
+        </div>
+        <div class="card-body p-1">
+          <table class="table mt-2">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Winner</th>
+                <th scope="col">Winner No.</th>
+              </tr>
+            </thead>
+            <tbody id="winner-tbody">
+              <tr>
+                <td colspan="3">
+                  <p class="text-center tetx-secondary m-5">
+                    No Data Available
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br />
+    <p class="text-center mt-5 mb-4 text-secondary">
+      Game Created By
+      <a href="https://www.linkedin.com/in/jai3000/" target="_blank"
+        ><i class="text-primary text-decoration-none">Jai krishna verma</i></a
+      >
+    </p>
+  </body>
+  <script src="constant.js"></script>
+  <script src="logic.js"></script>
+</html>

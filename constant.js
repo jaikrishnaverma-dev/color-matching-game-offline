@@ -1,0 +1,77 @@
+const betOptions = [
+    {
+      isSingle: true,
+      label: 1,
+      value: 1,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 2,
+      value: 2,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 3,
+      value: 3,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 4,
+      value: 4,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 5,
+      value: 5,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 6,
+      value: 6,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 7,
+      value: 7,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 8,
+      value: 8,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: true,
+      label: 9,
+      value: 9,
+      return_percentage: 1.8,
+    },
+    {
+      isSingle: false,
+      label: "Blue",
+      value: [1, 8, 9, 3, 4, 7],
+      return_percentage: 1.25,
+      class: "btn-primary",
+    },
+    {
+      isSingle: false,
+      label: "Yellow",
+      value: [2, 5, 3, 6],
+      return_percentage: 1.5,
+      class: "btn-warning",
+    },
+    {
+      isSingle: false,
+      label: "Red",
+      value: [9, 7, 4],
+      return_percentage: 1.75,
+      class: "btn-danger",
+    },
+  ];

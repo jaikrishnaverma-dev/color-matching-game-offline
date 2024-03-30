@@ -1,0 +1,89 @@
+.rules li{
+font-size: 12px;
+font-family: monospace;
+}
+.card small{
+    font-size: 12px;
+
+}
+.card-title{
+    line-height: 1;
+}
+.card-title>p{
+    margin-bottom: 10px;
+}
+.logo-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 72px;
+    color: #ff5733;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #ff5733, #f9a825);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: neon 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes neon {
+    0% { text-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733; }
+    100% { text-shadow: 0 0 5px #ff5733, 0 0 10px #ff5733, 0 0 15px #ff5733; }
+  }
+  
+  .logo-container {
+    
+  }
+  
+  .logo-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 40px;
+    color: #9933ff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(167, 51, 255, 0.8);
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes neon-glow {
+    0% { text-shadow: 0 0 10px rgba(163, 51, 255, 0.8); }
+    100% { text-shadow: 0 0 20px rgba(143, 51, 255, 0.8), 0 0 30px rgba(51, 255, 92, 0.6), 0 0 40px rgba(51, 61, 255, 0.4), 0 0 50px rgba(255, 87, 51, 0.2); }
+  }
+  
+  .logo-text:before {
+    content: 'SATTA';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #fff;
+    animation: noise 2s infinite linear alternate-reverse;
+  }
+  
+  @keyframes noise {
+    0% { clip: rect(22px, 9999px, 68px, 0); }
+    5% { clip: rect(34px, 9999px, 73px, 0); }
+    10% { clip: rect(34px, 9999px, 61px, 0); }
+    15% { clip: rect(45px, 9999px, 74px, 0); }
+    20% { clip: rect(35px, 9999px, 58px, 0); }
+    25% { clip: rect(82px, 9999px, 29px, 0); }
+    30% { clip: rect(9px, 9999px, 53px, 0); }
+    35% { clip: rect(27px, 9999px, 79px, 0); }
+    40% { clip: rect(10px, 9999px, 66px, 0); }
+    45% { clip: rect(71px, 9999px, 96px, 0); }
+    50% { clip: rect(44px, 9999px, 35px, 0); }
+    55% { clip: rect(48px, 9999px, 87px, 0); }
+    60% { clip: rect(65px, 9999px, 11px, 0); }
+    65% { clip: rect(98px, 9999px, 3px, 0); }
+    70% { clip: rect(30px, 9999px, 25px, 0); }
+    75% { clip: rect(69px, 9999px, 49px, 0); }
+    80% { clip: rect(20px, 9999px, 4px, 0); }
+    85% { clip: rect(74px, 9999px, 89px, 0); }
+    90% { clip: rect(8px, 9999px, 70px, 0); }
+    95% { clip: rect(34px, 9999px, 12px, 0); }
+    100% { clip: rect(80px, 9999px, 86px, 0); }
+  }
+  
+  
+  
